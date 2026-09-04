@@ -1,19 +1,10 @@
 import pickle
 
-
 def make_predictions(model_path, data):
-	with open(model_path, "rb") as model_file:
-		model = pickle.load(model_file)
+    with open(model_path, 'rb') as f:
+        model = pickle.load(f)
+        predictions = model.predict(data)
+    return predictions
 
-	predictions = model.predict(data)
-	return predictions
+make_predictions("../model.pkl", [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]])
 
-
-data = [[
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-]]
-
-predictions = make_predictions("./logistic_regression_model.pkl", data)
-print(predictions)
