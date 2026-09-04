@@ -1,0 +1,3 @@
+model = NeuralNetwork()
+model.train(train_data)
+model.fit(train.X, train.y)
